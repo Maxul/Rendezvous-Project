@@ -1,4 +1,4 @@
-# Supplimentary-Materials-For-S2BR-Project
+# Supplementary-Materials-For-S2BR-Project
 
 This repo omits [coreboot](https://github.com/coreboot/coreboot). Please follow [instructions](https://www.coreboot.org/SeaBIOS) to build corresponding seabios as customized BIOS.
 
