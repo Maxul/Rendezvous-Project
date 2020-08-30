@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <sys/io.h>
 
+#define CPU_MHZ 3500
 #define NUM 1000
 #define PORT_SMI_CMD             0x00b2
 
@@ -21,13 +22,6 @@ int main(void)
     if (ioperm(PORT_SMI_CMD, 1, 1) != 0)
         err(EXIT_FAILURE, "ioperm");
 
-#if 0
-    while (1) {
-        outb(0xa0, PORT_SMI_CMD);
-        sleep(2);
-    }
-#endif
-
     /* trigger smi */
     int n = NUM;
 
@@ -36,7 +30,7 @@ int main(void)
         outb(0xa0, PORT_SMI_CMD);
     }
     diff = (rdtscllp() - ticks);
-    printf("It took %ld us.\n", diff / 2808 / NUM);
+    printf("It took %ld us.\n", diff / CPU_MHZ / NUM);
 
     return EXIT_SUCCESS;
 
